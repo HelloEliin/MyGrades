@@ -1,0 +1,106 @@
+using System;
+
+namespace Läxa
+{
+    class Program
+
+    {
+        
+
+        static void Main(string[] args)
+        {
+            
+
+            string[] courses = { "Math", "English", "Swedish", "History", "Chemistry" };
+            int[] points = new int[5];              // Måste användas i uppgiften.
+            char[] grades = new char[6];
+
+    
+
+            static int[] ReadPoints(string[] courses)
+            {
+                var storePoints = new int[5];            // Läsa poäng för varje kurs. Vettefan om det funkar, men tänkte
+                                                         // det kanske funkar, då vet jag vilken kurs som tillhör vilken poäng.
+                Console.WriteLine("Points for Math");
+                storePoints[0] = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("Points for English");
+                storePoints[1] = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("Points for Swedish");
+                storePoints[2] = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("Points for History");
+                storePoints[3] = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("Points for Chemistry");
+                storePoints[4] = int.Parse(Console.ReadLine());
+
+
+                return storePoints;
+
+            }
+
+
+            static char[] PointToGrades(int[] storePoints)
+            {
+                var grades = new char[storePoints.Length];
+
+                
+                    for(int i = 0; i > storePoints.Length; i++)
+                {
+                    if (storePoints[i] == 100)
+                    {
+                        
+                       grades[i] = 'A';                    // För varje element i arrayen storePoints som är lika med 100,
+                    }                                     // ska ett A läggas in i grades, annars så... osv.
+
+                                                         // Det vore ju bra om rätt betyg tillhör rätt kurs....
+                    else if (storePoints[i] <= 80)
+                    {
+                        grades[i] = 'B';
+                    }
+                    else if (storePoints[i] <= 75)
+                    {
+                        grades[i] = 'C';
+                    }
+                    else if (storePoints[i] <= 70)
+                    {
+                        grades[i] = 'D';
+                    }
+                    else if (storePoints[i] <= 50)
+                    {
+                        grades[i]= 'E';
+                    }
+                    else if (storePoints[i] > 50)
+                    {
+                        grades[i] = 'F';
+                    }
+                }
+
+                return grades;
+                
+            }
+
+
+          
+
+
+            static void printOutGrades(char[] grades, string[] courses)
+            {
+                // Ej kommit till denna metod ännu därför den är tom.
+                // Den ska skriva ut vilket betyg man har i varje kurs iallafall.
+
+            }
+
+
+            static int Statics(int[] grades, int[] storePoints)
+            {
+                // Har inte kommit hit ännu heller.
+                // Den ska skriva ut statistik på antal A,B,C i betyg.
+                // och summera alla storePoints.
+            }
+
+        }
+    }
+}
