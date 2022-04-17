@@ -10,14 +10,13 @@ namespace Läxa
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
 
             string[] courses = { "Math", "English", "Swedish", "History", "Chemistry" };
             int[] points = new int[5];
             char[] grades = new char[6];
 
 
-            Console.WriteLine("Hej");
+            Console.WriteLine("Hello. Please enter your points below. Only 0-100.");
 
     
 
@@ -25,19 +24,19 @@ namespace Läxa
             {
                 var storePoints = new int[5];
 
-                Console.WriteLine("Points for Math");
+                Console.WriteLine("Points for: Math");
                 storePoints[0] = int.Parse(Console.ReadLine());
 
-                Console.WriteLine("Points for English");
+                Console.WriteLine("Points for: English");
                 storePoints[1] = int.Parse(Console.ReadLine());
 
-                Console.WriteLine("Points for Swedish");
+                Console.WriteLine("Points for: Swedish");
                 storePoints[2] = int.Parse(Console.ReadLine());
 
-                Console.WriteLine("Points for History");
+                Console.WriteLine("Points for: History");
                 storePoints[3] = int.Parse(Console.ReadLine());
 
-                Console.WriteLine("Points for Chemistry");
+                Console.WriteLine("Points for: Chemistry");
                 storePoints[4] = int.Parse(Console.ReadLine());
 
 
