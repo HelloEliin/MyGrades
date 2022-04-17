@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace Läxa
 {
@@ -50,10 +51,10 @@ namespace Läxa
 
             static char[] PointToGrades(int[] storePoints)
             {
-                char[] grades = new char[storePoints.Length];
+                char[] grades = new char[6];
 
                 
-                   for (int i = 0; i > storePoints.Length; i++)
+                   for (int i = 0; i >= grades.Length; i++)
                 {
                     if ( storePoints[i] == 100)
                     {
@@ -62,8 +63,8 @@ namespace Läxa
                        storePoints[1] = grades[1] = 'A';
                        storePoints[2] = grades[2] = 'A';
                        storePoints[3] = grades[3] = 'A';
-                       storePoints[4] = grades[4] = 'A';   // För varje element i arrayen storePoints som är lika med 100,
-                    }                                     // ska ett A läggas in i grades, annars så... osv.
+                       storePoints[4] = grades[4] = 'A';   
+                    }                                     
 
 
                     else if (storePoints[i] <= 80)
@@ -100,11 +101,11 @@ namespace Läxa
                     }
                     else if (storePoints[i] > 50)
                     {
-                        storePoints[0] = grades[0] = 'D';
-                        storePoints[1] = grades[1] = 'D';
-                        storePoints[2] = grades[2] = 'D';
-                        storePoints[3] = grades[3] = 'D';
-                        storePoints[4] = grades[4] = 'D';
+                        storePoints[0] = grades[0] = 'F';
+                        storePoints[1] = grades[1] = 'F';
+                        storePoints[2] = grades[2] = 'F';
+                        storePoints[3] = grades[3] = 'F';
+                        storePoints[4] = grades[4] = 'F';
                     }
                 }
 
@@ -114,7 +115,7 @@ namespace Läxa
             }
 
 
-            PointToGrades(storePoints);
+            PointToGrades(storePoints); // Anropa metoden storePoints - Den finns ju inte, för den är ju i metoden?
 
 
 
@@ -129,11 +130,37 @@ namespace Läxa
 
             }
 
+            printOutGrades(grades, courses);
 
-            static int Statics(int[] grades, int[] storePoints)
+
+            static int Statics(char[] grades, int[] storePoints)
             {
-                 // Ej kommit hit än
-             }
+                int totalA = 0;
+                char a = 'A';
+                foreach(char A in grades)
+                {
+                    if (A == a)
+                    {
+                        totalA++;          // Upprepa med varje bokstav?
+                    }
+                }
+
+                Console.WriteLine("You have" + totalA + "A's.");
+
+
+              
+
+                int sum = storePoints.Sum();
+                return sum;
+
+                Console.WriteLine("Your total points is" + sum);
+
+
+            }
+
+
+
+            
 
         }
     }
