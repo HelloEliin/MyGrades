@@ -9,18 +9,21 @@ namespace Läxa
 
         static void Main(string[] args)
         {
-            
+            Console.WriteLine("Hello World!");
 
             string[] courses = { "Math", "English", "Swedish", "History", "Chemistry" };
-            int[] points = new int[5];              // Måste användas i uppgiften.
+            int[] points = new int[5];
             char[] grades = new char[6];
+
+
+            Console.WriteLine("Hej");
 
     
 
             static int[] ReadPoints(string[] courses)
             {
-                var storePoints = new int[5];            // Läsa poäng för varje kurs. Vettefan om det funkar, men tänkte
-                                                         // det kanske funkar, då vet jag vilken kurs som tillhör vilken poäng.
+                var storePoints = new int[5];
+
                 Console.WriteLine("Points for Math");
                 storePoints[0] = int.Parse(Console.ReadLine());
 
@@ -41,65 +44,96 @@ namespace Läxa
 
             }
 
+            ReadPoints(courses);
+            
+
 
             static char[] PointToGrades(int[] storePoints)
             {
-                var grades = new char[storePoints.Length];
+                char[] grades = new char[storePoints.Length];
 
                 
-                    for(int i = 0; i > storePoints.Length; i++)
+                   for (int i = 0; i > storePoints.Length; i++)
                 {
-                    if (storePoints[i] == 100)
+                    if ( storePoints[i] == 100)
                     {
                         
-                       grades[i] = 'A';                    // För varje element i arrayen storePoints som är lika med 100,
+                       storePoints[0] = grades[0] = 'A';
+                       storePoints[1] = grades[1] = 'A';
+                       storePoints[2] = grades[2] = 'A';
+                       storePoints[3] = grades[3] = 'A';
+                       storePoints[4] = grades[4] = 'A';   // För varje element i arrayen storePoints som är lika med 100,
                     }                                     // ska ett A läggas in i grades, annars så... osv.
 
-                                                         // Det vore ju bra om rätt betyg tillhör rätt kurs....
+
                     else if (storePoints[i] <= 80)
                     {
-                        grades[i] = 'B';
+                        storePoints[0] = grades[0] = 'B';
+                        storePoints[1] = grades[1] = 'B';
+                        storePoints[2] = grades[2] = 'B';
+                        storePoints[3] = grades[3] = 'B';
+                        storePoints[4] = grades[4] = 'B';
                     }
                     else if (storePoints[i] <= 75)
                     {
-                        grades[i] = 'C';
+                        storePoints[0] = grades[0] = 'C';
+                        storePoints[1] = grades[1] = 'C';
+                        storePoints[2] = grades[2] = 'C';
+                        storePoints[3] = grades[3] = 'C';
+                        storePoints[4] = grades[4] = 'C';
                     }
                     else if (storePoints[i] <= 70)
                     {
-                        grades[i] = 'D';
+                        storePoints[0] = grades[0] = 'D';
+                        storePoints[1] = grades[1] = 'D';
+                        storePoints[2] = grades[2] = 'D';
+                        storePoints[3] = grades[3] = 'D';
+                        storePoints[4] = grades[4] = 'D';
                     }
                     else if (storePoints[i] <= 50)
                     {
-                        grades[i]= 'E';
+                        storePoints[0] = grades[0] = 'E';
+                        storePoints[1] = grades[1] = 'E';
+                        storePoints[2] = grades[2] = 'E';
+                        storePoints[3] = grades[3] = 'E';
+                        storePoints[4] = grades[4] = 'E';
                     }
                     else if (storePoints[i] > 50)
                     {
-                        grades[i] = 'F';
+                        storePoints[0] = grades[0] = 'D';
+                        storePoints[1] = grades[1] = 'D';
+                        storePoints[2] = grades[2] = 'D';
+                        storePoints[3] = grades[3] = 'D';
+                        storePoints[4] = grades[4] = 'D';
                     }
                 }
 
                 return grades;
+
                 
             }
 
 
-          
+            PointToGrades(storePoints);
+
 
 
             static void printOutGrades(char[] grades, string[] courses)
             {
-                // Ej kommit till denna metod ännu därför den är tom.
-                // Den ska skriva ut vilket betyg man har i varje kurs iallafall.
+            Console.WriteLine("Your grade in" + courses[0] + "is" + grades[0]);
+            Console.WriteLine("Your grade in" + courses[1] + "is" + grades[1]);
+            Console.WriteLine("Your grade in" + courses[2] + "is" + grades[2]);
+            Console.WriteLine("Your grade in" + courses[3] + "is" + grades[3]);
+            Console.WriteLine("Your grade in" + courses[4] + "is" + grades[4]);
+            Console.WriteLine("Your grade in" + courses[5] + "is" + grades[5]);
 
             }
 
 
             static int Statics(int[] grades, int[] storePoints)
             {
-                // Har inte kommit hit ännu heller.
-                // Den ska skriva ut statistik på antal A,B,C i betyg.
-                // och summera alla storePoints.
-            }
+                 // Ej kommit hit än
+             }
 
         }
     }
