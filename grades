@@ -5,36 +5,36 @@ namespace Läxa
     class Program
 
     {
- 
 
-        static int[] ReadPoints(string[] courses)
+        static int[] ReadPoints(string[] courses, ref int[] points)
         {
             var storePoints = new int[5];
-            int[] points = storePoints;   // hur få ut poängen?
+            
 
-            Console.WriteLine("Points for: Math");
+            Console.WriteLine("Points for: Math:");
             storePoints[0] = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Points for: English");
+            Console.WriteLine("Points for: English:");
             storePoints[1] = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Points for: Swedish");
+            Console.WriteLine("Points for: Swedish:");
             storePoints[2] = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Points for: History");
+            Console.WriteLine("Points for: History:");
             storePoints[3] = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Points for: Chemistry");
+            Console.WriteLine("Points for: Chemistry:");
             storePoints[4] = int.Parse(Console.ReadLine());
 
+            points = storePoints;
 
             return storePoints;
 
         }
 
-        static char[] PointToGrades( int[]points)
+        static char[] PointToGrades( ref int []points, ref char[] grades)
         {
-            var grades = new char[6];
+            var grades1 = new char[6];
 
 
             for (int i = 0; i >= grades.Length; i++)
@@ -71,14 +71,16 @@ namespace Läxa
                     grades[i] = 'F';
 
                 }
+               
             }
 
+            grades1 = grades;
             return grades;
 
 
         }
 
-        static void printOutGrades(char[] grades, string[] courses)
+        static void printOutGrades(ref char [] grades, string[] courses)
         {
 
             Console.WriteLine("Your grade in " + courses[0] + " is " + grades[0]);
@@ -89,7 +91,7 @@ namespace Läxa
 
         }
 
-        static void Statics(char[] grades, int[] storePoints)
+        static void Statics(ref char[] grades, ref int[] points)
         {
 
             int totalA = 0;
@@ -116,21 +118,22 @@ namespace Läxa
                     totalF++;
 
                 }
+
             }
 
 
             int sum = 0;
-            for (int i = 0; i < storePoints.Length; i++)
+            for (int i = 0; i < points.Length; i++)
             {
-                sum = sum + storePoints[i];
+                sum = sum + points[i];
 
             }
 
-
-            Console.WriteLine("Your total points is: " + sum);
             Console.WriteLine("You have " + totalA + " A's.");
             Console.WriteLine("You have " + totalC + " C's.");
             Console.WriteLine("You have " + totalF + " F's.");
+            Console.WriteLine("Your total points is: " + sum);
+           
 
         }
 
@@ -139,21 +142,21 @@ namespace Läxa
         static void Main(string[] args)
         {
 
+
             string[] courses = { "Math", "English", "Swedish", "History", "Chemistry" };
             int[] points = new int[5];
             char[] grades = new char[6];
 
-
             Console.WriteLine("Hello. Please enter your points below. Only 0-100.");
 
 
-            ReadPoints(courses);
+            ReadPoints(courses, ref points);
 
-            PointToGrades(points); 
+            PointToGrades(ref points, ref grades); 
 
-            printOutGrades(grades, courses);
+            printOutGrades(ref grades, courses);
 
-            Statics(grades, points);
+            Statics(ref grades, ref points);
 
 
         }
