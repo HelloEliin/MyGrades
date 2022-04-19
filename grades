@@ -34,48 +34,50 @@ namespace Läxa
 
         static char[] PointToGrades( ref int []points, ref char[] grades)
         {
-            var grades1 = new char[6];
 
+            var grades1 = new char[6];
 
             for (int i = 0; i >= grades.Length; i++)
             {
+                
+
                 if (points[i] == 100)
                 {
 
-                    grades[i] = 'A';
-
+                    grades1[i] = 'A';
+                    
                 }
 
                 else if (points[i] <= 80)
                 {
-                    grades[i] = 'B';
-
+                    grades1[i] = 'B';
+                    
                 }
                 else if (points[i] <= 75)
                 {
-                    grades[i] = 'C';
-
+                    grades1[i] = 'C';
+                    
                 }
                 else if (points[i] <= 70)
                 {
-                    grades[i] = 'D';
-
+                    grades1[i] = 'D';
+                    
                 }
                 else if (points[i] <= 50)
                 {
-                    grades[i] = 'E';
-
+                    grades1[i] = 'E';
+                    
                 }
                 else if (points[i] > 50)
                 {
-                    grades[i] = 'F';
-
+                    grades1[i] = 'F';
+                    
                 }
-               
+
+                grades = grades1;
             }
 
-            grades1 = grades;
-            return grades;
+            return grades1;
 
 
         }
@@ -97,19 +99,26 @@ namespace Läxa
             int totalA = 0;
             int totalC = 0;
             int totalF = 0;
+            int nothing = 0;
 
             for (int i = 0; i < grades.Length; i++)
             {
-                if (grades[i] == 100)
+                if (grades[i] <= 100)
                 {
 
                     totalA++;
 
                 }
 
-                else if (grades[i] <= 75)
+                else if (grades[i] < 75)
                 {
                     totalC++;
+
+                }
+
+                else if (grades[i] < 50)
+                {
+                    nothing++;
 
                 }
 
@@ -118,6 +127,7 @@ namespace Läxa
                     totalF++;
 
                 }
+                
 
             }
 
