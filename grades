@@ -5,11 +5,12 @@ namespace Läxa
     class Program
 
     {
-        private static int[] storePoints;
+ 
 
         static int[] ReadPoints(string[] courses)
         {
             var storePoints = new int[5];
+            int[] points = storePoints;   // hur få ut poängen?
 
             Console.WriteLine("Points for: Math");
             storePoints[0] = int.Parse(Console.ReadLine());
@@ -31,42 +32,41 @@ namespace Läxa
 
         }
 
-        static char[] PointToGrades(int[] storePoints)
+        static char[] PointToGrades( int[]points)
         {
             var grades = new char[6];
 
 
             for (int i = 0; i >= grades.Length; i++)
             {
-                if (storePoints[i] == 100)
+                if (points[i] == 100)
                 {
 
                     grades[i] = 'A';
 
                 }
 
-
-                else if (storePoints[i] <= 80)
+                else if (points[i] <= 80)
                 {
                     grades[i] = 'B';
 
                 }
-                else if (storePoints[i] <= 75)
+                else if (points[i] <= 75)
                 {
                     grades[i] = 'C';
 
                 }
-                else if (storePoints[i] <= 70)
+                else if (points[i] <= 70)
                 {
                     grades[i] = 'D';
 
                 }
-                else if (storePoints[i] <= 50)
+                else if (points[i] <= 50)
                 {
                     grades[i] = 'E';
 
                 }
-                else if (storePoints[i] > 50)
+                else if (points[i] > 50)
                 {
                     grades[i] = 'F';
 
@@ -81,15 +81,15 @@ namespace Läxa
         static void printOutGrades(char[] grades, string[] courses)
         {
 
-            Console.WriteLine("Your grade in" + courses[0] + "is" + grades[0]);
-            Console.WriteLine("Your grade in" + courses[1] + "is" + grades[1]);
-            Console.WriteLine("Your grade in" + courses[2] + "is" + grades[2]);
-            Console.WriteLine("Your grade in" + courses[3] + "is" + grades[3]);
-            Console.WriteLine("Your grade in" + courses[4] + "is" + grades[4]);
+            Console.WriteLine("Your grade in " + courses[0] + " is " + grades[0]);
+            Console.WriteLine("Your grade in " + courses[1] + " is " + grades[1]);
+            Console.WriteLine("Your grade in " + courses[2] + " is " + grades[2]);
+            Console.WriteLine("Your grade in " + courses[3] + " is " + grades[3]);
+            Console.WriteLine("Your grade in " + courses[4] + " is " + grades[4]);
 
         }
 
-        static int Statics(char[] grades, int[] storePoints)
+        static void Statics(char[] grades, int[] storePoints)
         {
 
             int totalA = 0;
@@ -116,16 +116,7 @@ namespace Läxa
                     totalF++;
 
                 }
-
-
             }
-
-
-
-            Console.WriteLine("You have" + totalA + "A's.");
-            Console.WriteLine("You have" + totalC + "C's.");
-            Console.WriteLine("You have" + totalF + "F's.");
-
 
 
             int sum = 0;
@@ -136,10 +127,13 @@ namespace Läxa
             }
 
 
-            Console.WriteLine("Your total points is" + sum);
+            Console.WriteLine("Your total points is: " + sum);
+            Console.WriteLine("You have " + totalA + " A's.");
+            Console.WriteLine("You have " + totalC + " C's.");
+            Console.WriteLine("You have " + totalF + " F's.");
 
-            return sum;
         }
+
 
 
         static void Main(string[] args)
@@ -155,11 +149,11 @@ namespace Läxa
 
             ReadPoints(courses);
 
-            PointToGrades(storePoints); // Call PointToGrades, but storePoints is not existing, cause its inside the method?
+            PointToGrades(points); 
 
             printOutGrades(grades, courses);
 
-            Statics(grades, storePoints);
+            Statics(grades, points);
 
 
         }
