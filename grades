@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 
+
 namespace Läxa
 {
     class Program
@@ -50,7 +51,7 @@ namespace Läxa
 
             static char[] PointToGrades(int[] storePoints)
             {
-                char[] grades = new char[6];
+                var grades = new char[6];  
 
                 
                    for (int i = 0; i >= grades.Length; i++)
@@ -58,53 +59,35 @@ namespace Läxa
                     if ( storePoints[i] == 100)
                     {
                         
-                       storePoints[0] = grades[0] = 'A';
-                       storePoints[1] = grades[1] = 'A';
-                       storePoints[2] = grades[2] = 'A';
-                       storePoints[3] = grades[3] = 'A';
-                       storePoints[4] = grades[4] = 'A';   
+                       grades[i] = 'A';
+                      
                     }                                     
 
 
                     else if (storePoints[i] <= 80)
                     {
-                        storePoints[0] = grades[0] = 'B';
-                        storePoints[1] = grades[1] = 'B';
-                        storePoints[2] = grades[2] = 'B';
-                        storePoints[3] = grades[3] = 'B';
-                        storePoints[4] = grades[4] = 'B';
+                         grades[i] = 'B';
+                       
                     }
                     else if (storePoints[i] <= 75)
                     {
-                        storePoints[0] = grades[0] = 'C';
-                        storePoints[1] = grades[1] = 'C';
-                        storePoints[2] = grades[2] = 'C';
-                        storePoints[3] = grades[3] = 'C';
-                        storePoints[4] = grades[4] = 'C';
+                         grades[i] = 'C';
+                    
                     }
                     else if (storePoints[i] <= 70)
                     {
-                        storePoints[0] = grades[0] = 'D';
-                        storePoints[1] = grades[1] = 'D';
-                        storePoints[2] = grades[2] = 'D';
-                        storePoints[3] = grades[3] = 'D';
-                        storePoints[4] = grades[4] = 'D';
+                         grades[i] = 'D';
+                 
                     }
                     else if (storePoints[i] <= 50)
                     {
-                        storePoints[0] = grades[0] = 'E';
-                        storePoints[1] = grades[1] = 'E';
-                        storePoints[2] = grades[2] = 'E';
-                        storePoints[3] = grades[3] = 'E';
-                        storePoints[4] = grades[4] = 'E';
+                        grades[i] = 'E';
+                 
                     }
                     else if (storePoints[i] > 50)
                     {
-                        storePoints[0] = grades[0] = 'F';
-                        storePoints[1] = grades[1] = 'F';
-                        storePoints[2] = grades[2] = 'F';
-                        storePoints[3] = grades[3] = 'F';
-                        storePoints[4] = grades[4] = 'F';
+                         grades[i] = 'F';
+                     
                     }
                 }
 
@@ -114,53 +97,81 @@ namespace Läxa
             }
 
 
-            PointToGrades(storePoints); // Anropa metoden storePoints - Den finns ju inte, för den är ju i metoden?
+            PointToGrades(storePoints); // Call PointToGrades, but storePoints is not existing, cause its inside the method?
 
 
 
-            static void printOutGrades(char[] grades, string[] courses)
+            static void printOutGrades(char[]grades, string[] courses)
             {
-            Console.WriteLine("Your grade in" + courses[0] + "is" + grades[0]);
-            Console.WriteLine("Your grade in" + courses[1] + "is" + grades[1]);
-            Console.WriteLine("Your grade in" + courses[2] + "is" + grades[2]);
-            Console.WriteLine("Your grade in" + courses[3] + "is" + grades[3]);
-            Console.WriteLine("Your grade in" + courses[4] + "is" + grades[4]);
-            Console.WriteLine("Your grade in" + courses[5] + "is" + grades[5]);
+
+                Console.WriteLine("Your grade in" + courses[0] + "is" + grades[0]);
+                Console.WriteLine("Your grade in" + courses[1] + "is" + grades[1]);
+                Console.WriteLine("Your grade in" + courses[2] + "is" + grades[2]);
+                Console.WriteLine("Your grade in" + courses[3] + "is" + grades[3]);
+                Console.WriteLine("Your grade in" + courses[4] + "is" + grades[4]);
 
             }
+
+
+
+
+
 
             printOutGrades(grades, courses);
 
 
             static int Statics(char[] grades, int[] storePoints)
             {
+
                 int totalA = 0;
-                char a = 'A';
-                foreach(char A in grades)
+                int totalC = 0;
+                int totalF = 0;
+
+                for (int i = 0; i < grades.Length; i++)
                 {
-                    if (A == a)
-                    {
-                        totalA++;          // Upprepa med varje bokstav?
+                        if (grades[i] == 100)
+                        {
+
+                        totalA++;
+
+                        }
+
+                        else if (grades[i] <= 75)
+                        {
+                        totalC++;
+
+                        }
+                    
+                        else if (grades[i] > 50)
+                        {
+                        totalF++;
+
+                        }
+
+                    
                     }
-                }
+
+
 
                 Console.WriteLine("You have" + totalA + "A's.");
+                Console.WriteLine("You have" + totalC + "C's.");
+                Console.WriteLine("You have" + totalF + "F's.");
 
 
-              
 
                 int sum = storePoints.Sum();
+                
+
+                Console.WriteLine("Your total points is" + "SUM: {0})", sum);
+
                 return sum;
-
-                Console.WriteLine("Your total points is" + sum);
-
-
             }
 
+          
 
-
-            
 
         }
+
+       
     }
 }
