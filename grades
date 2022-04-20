@@ -9,7 +9,7 @@ namespace Läxa
         static int[] ReadPoints(string[] courses, ref int[] points)
         {
             var storePoints = new int[5];
-            
+
 
             Console.WriteLine("Points for: Math:");
             storePoints[0] = int.Parse(Console.ReadLine());
@@ -32,46 +32,46 @@ namespace Läxa
 
         }
 
-        static char[] PointToGrades( ref int []points, ref char[] grades)
+        static char[] PointToGrades(ref int[] points, ref char[] grades)
         {
 
             var grades1 = new char[6];
 
             for (int i = 0; i >= grades.Length; i++)
             {
-               
+
 
                 if (points[i] == 100 && points[i] < 100)
                 {
 
                     grades1[i] = 'A';
-                    
+
                 }
 
-                else if (points[i] <= 80)
+                else if (points[i] < 80 && points[i] > 100)
                 {
                     grades1[i] = 'B';
-                    
+
                 }
-                else if (points[i] <= 75)
+                else if (points[i] < 75 && points[i] > 80)
                 {
                     grades1[i] = 'C';
-                    
+
                 }
-                else if (points[i] <= 70)
+                else if (points[i] < 65 && points[i] < 75)
                 {
                     grades1[i] = 'D';
-                    
+
                 }
-                else if (points[i] <= 50)
+                else if (points[i] < 50 && points[i] > 65)
                 {
                     grades1[i] = 'E';
-                    
+
                 }
-                else if (points[i] > 50)
+                else if (points[i] < 0 && points[i] > 50)
                 {
                     grades1[i] = 'F';
-                    
+
                 }
 
                 grades = grades1;
@@ -82,7 +82,7 @@ namespace Läxa
 
         }
 
-        static void printOutGrades(ref char [] grades, string[] courses)
+        static void printOutGrades(ref char[] grades, string[] courses)
         {
 
             Console.WriteLine("Your grade in " + courses[0] + " is " + grades[0]);
@@ -99,7 +99,6 @@ namespace Läxa
             int totalA = 0;
             int totalC = 0;
             int totalF = 0;
-            int nothing = 0;
 
             for (int i = 0; i < points.Length; i++)
             {
@@ -121,7 +120,7 @@ namespace Läxa
                     totalF++;
 
                 }
-                
+
 
             }
 
@@ -137,7 +136,7 @@ namespace Läxa
             Console.WriteLine("You have " + totalC + " C's.");
             Console.WriteLine("You have " + totalF + " F's.");
             Console.WriteLine("Your total points is: " + sum);
-           
+
 
         }
 
@@ -156,7 +155,7 @@ namespace Läxa
 
             ReadPoints(courses, ref points);
 
-            PointToGrades(ref points, ref grades); 
+            PointToGrades(ref points, ref grades);
 
             printOutGrades(ref grades, courses);
 
@@ -165,6 +164,6 @@ namespace Läxa
 
         }
 
-      
+
     }
 }
